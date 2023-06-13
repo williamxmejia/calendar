@@ -1,0 +1,32 @@
+
+.container {
+    margin: 20px 100px 0px 100px;
+}
+
+.cont-box {
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.calendar-head {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.calendar-days {
+    border: solid black 1px;
+    margin-right: 20px;
+    padding: 20px;
+    min-width: 30px;
+}
+
+.calendar-in {
+    border: solid black 1px;
+    margin-right:20px;
+    padding: 20px;
+    min-width: 30px;
+    margin-top: 20px;
+}
