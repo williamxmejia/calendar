@@ -13,9 +13,9 @@ Provide instructions on how to install and set up your project. Be sure to inclu
 
 git clone git@github.com:williamxmejia/calendar.git
 
-cd your_project
-npm install react-scripts
-npm start
+- cd your_project
+- npm install react-scripts
+- npm start
 
 ## Features
 
