@@ -5,18 +5,20 @@ function RenderAllDays(props) {
     const [dates, setArrayOfDates] = useState([])
 
     function getAllDays() {
-        let currentDate = props.currentMonth.startOf("month").weekday(0)
-        const nextMonth = props.currentMonth.add(1, "month")
-        const endDate = nextMonth.startOf("month").weekday(6)
+        let currentDate = props.currentMonth.startOf("week").weekday(0)
+        // let currenWeek = props.currentMonth.startOf("week").weekday()
+        const nextMonth = props.currentMonth.add(1, "week")
+        console.log(nextMonth)
+        const endDate = nextMonth.startOf("week").weekday(6)
 
         let allDates = []
         let weekDates = []
 
         let weekCounter = 1
         let dayCounter = 0
-        let b = props.currentMonth.startOf("month").weekday(0)
+        let b = props.currentMonth.startOf("week").weekday(0)
 
-        while (b.isBefore(endDate) || b.isSame(endDate, "day")) {
+        while (b.isBefore(endDate)) {
         const formated = formatDateObject(b)
         weekDates.push(formated)
 
@@ -39,7 +41,7 @@ function RenderAllDays(props) {
     
         dates.map((week) => {
           week.map((d) => {
-            days.push(<div className="calendar-in">{d.day}</div>)
+            days.push(<div key={d.day} className="calendar-in">{d.day}</div>)
           })
           rows.push(days)
           days = []
