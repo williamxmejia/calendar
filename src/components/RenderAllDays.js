@@ -5,35 +5,38 @@ function RenderAllDays(props) {
     const [dates, setArrayOfDates] = useState([])
 
     function getAllDays() {
-        let currentDate = props.currentMonth.startOf("week").weekday(0)
-        // let currenWeek = props.currentMonth.startOf("week").weekday()
-        const nextMonth = props.currentMonth.add(1, "week")
+        let currentDate = props.currentMonth.startOf(props.view).weekday(0)
+        // let currenWeek = props.currentMonth.startOf(props.view).weekday()
+        const nextMonth = props.currentMonth.add(1, props.view)
         console.log(nextMonth)
-        const endDate = nextMonth.startOf("week").weekday(6)
+
+        let endDate = props.view === "week" ? nextMonth.startOf(props.view).weekday(5) : nextMonth.startOf(props.view).weekday(6)
+        
 
         let allDates = []
         let weekDates = []
 
         let weekCounter = 1
         let dayCounter = 0
-        let b = props.currentMonth.startOf("week").weekday(0)
+        let b = props.currentMonth.startOf(props.view).weekday(0)
 
-        while (b.isBefore(endDate)) {
-        const formated = formatDateObject(b)
-        weekDates.push(formated)
+        while ((props.view === "week" && b.isBefore(endDate)) || (props.view === "month" && b.isBefore(endDate) || b.isSame(endDate, "day"))) {
+          const formated = formatDateObject(b)
+          weekDates.push(formated)
 
-        if (weekCounter === 7) {
-            allDates.push(weekDates)
-            weekDates = []
-            weekCounter = 0
-        }
+          if (weekCounter === 7) {
+              allDates.push(weekDates)
+              weekDates = []
+              weekCounter = 0
+          }
 
-            weekCounter++
-            dayCounter++
-            b = currentDate.add(dayCounter, "day")
+          weekCounter++
+          dayCounter++
+          b = currentDate.add(dayCounter, "day")
+
         }
         setArrayOfDates(allDates)
-    }
+      }
 
     function renderCells() {
         const rows = []
@@ -51,7 +54,7 @@ function RenderAllDays(props) {
       }
     
     useEffect(() => {
-        getAllDays()
+        getAllDays(props.view)
     }, [props.currentMonth])
 
     function formatDateObject(date) {

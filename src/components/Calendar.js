@@ -17,23 +17,18 @@ dayjs.extend(localeData)
 dayjs.extend(weekYear)
 dayjs.extend(weekOfYear)
 
-function Calendar() {
-
-
+function Calendar(props) {
   const currDate = dayjs()
   const months = dayjs.months()
   const [currentMonth, setCurrentMonth] = useState(currDate)
 
-  console.log(dayjs(currentMonth).week())
-
-
   function monthHandlerBack() {
-    let back = currentMonth.subtract(1, "week")
+    let back = currentMonth.subtract(1, props.type)
     setCurrentMonth(back)
   }
 
   function monthHandlerForward() {
-    let next = currentMonth.add(1, "week")
+    let next = currentMonth.add(1, props.type)
     setCurrentMonth(next)
   }
 
@@ -44,7 +39,7 @@ function Calendar() {
         <BtnComponent next = {monthHandlerForward} back={monthHandlerBack}/>
         <div className="calendar-head">
           <RenderDays today = {currDate} />
-          <RenderAllDays currentMonth = {currentMonth}/>
+          <RenderAllDays currentMonth = {currentMonth} view={props.type}/>
         </div>
       </div>
     </>
