@@ -4,7 +4,7 @@
 }
 
 .cont-box {
-    max-width: 650px;
+    max-width: 300px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -13,24 +13,52 @@
 .calendar-head {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     margin-bottom: 20px;
+    
 }
 
 .calendar-days {
-    border: solid black 1px;
-    margin-right: 20px;
-    padding: 20px;
-    min-width: 30px;
+    min-width: 40px;
+    display: flex;
+    justify-content: center;
 }
 
 .calendar-in {
-    border: solid black 1px;
-    margin-right:20px;
-    padding: 20px;
-    min-width: 30px;
-    margin-top: 20px;
+    min-width: 40px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 .month-btn {
+    display: flex;
+    justify-content: space-between;
+    min-width: 60px;
+
+}
+
+.month-btn > button{
+    border: none;
+    color:#1577fd;
+    background-color: white;
+    font-size: 24px;
     
+}
+
+.month-btn > button:hover{
+    /* color:#1577fd; */
+    color: rgb(205, 204, 204);
+}
+
+
+
+.header-sad {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-sad > h1{
+    color:#1577fd;
+    font-size: 24px;
 }

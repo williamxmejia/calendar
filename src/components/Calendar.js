@@ -35,8 +35,7 @@ function Calendar(props) {
   return (
     <>
       <div className="cont-box">
-        <h1>{months[currentMonth.month()]} {currentMonth.year()}</h1>
-        <BtnComponent next = {monthHandlerForward} back={monthHandlerBack}/>
+        <BtnComponent next = {monthHandlerForward} back={monthHandlerBack} month = {months} currentMonth = {currentMonth.month()}currentYear = {currentMonth.year()}/>
         <div className="calendar-head">
           <RenderDays today = {currDate} />
           <RenderAllDays currentMonth = {currentMonth} view={props.type}/>

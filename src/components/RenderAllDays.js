@@ -8,7 +8,6 @@ function RenderAllDays(props) {
         let currentDate = props.currentMonth.startOf(props.view).weekday(0)
         // let currenWeek = props.currentMonth.startOf(props.view).weekday()
         const nextMonth = props.currentMonth.add(1, props.view)
-        console.log(nextMonth)
 
         let endDate = props.view === "week" ? nextMonth.startOf(props.view).weekday(5) : nextMonth.startOf(props.view).weekday(6)
         
