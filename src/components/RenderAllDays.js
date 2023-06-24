@@ -6,11 +6,9 @@ function RenderAllDays(props) {
 
     function getAllDays() {
         let currentDate = props.currentMonth.startOf(props.view).weekday(0)
-        // let currenWeek = props.currentMonth.startOf(props.view).weekday()
         const nextMonth = props.currentMonth.add(1, props.view)
 
-        let endDate = props.view === "week" ? nextMonth.startOf(props.view).weekday(5) : nextMonth.startOf(props.view).weekday(6)
-        
+        let endDate = props.view === "week" ? nextMonth.startOf(props.view).weekday(5) : props.currentMonth.endOf("month").weekday(6)
 
         let allDates = []
         let weekDates = []
@@ -18,6 +16,7 @@ function RenderAllDays(props) {
         let weekCounter = 1
         let dayCounter = 0
         let b = props.currentMonth.startOf(props.view).weekday(0)
+
 
         while ((props.view === "week" && b.isBefore(endDate)) || (props.view === "month" && b.isBefore(endDate) || b.isSame(endDate, "day"))) {
           const formated = formatDateObject(b)

@@ -4,7 +4,7 @@ import Calendar from './components/Calendar';
 function App() {
   return (
     <div className="container">
-      <Calendar type='week'/>
+      <Calendar type='month'/>
     </div>
   );
 }
