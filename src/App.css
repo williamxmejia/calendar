@@ -26,9 +26,21 @@
 
 .calendar-in {
     min-width: 40px;
+    /* min-height: 40px; */
     margin-top: 10px;
     display: flex;
     justify-content: center;
+    border: none;
+    background-color: white;
+
+}
+
+.dfw:hover {
+    min-width: 20px;
+    background-color: #1577fd;
+    color: white;
+    border: none;
+    border-radius: 50%;
 }
 
 .month-btn {
