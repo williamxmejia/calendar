@@ -1,6 +1,31 @@
 
 .container {
     margin: 20px 100px 0px 100px;
+    display: flex;
+}
+
+.time-container {
+    min-width: 300px;
+    /* max-height: 300px; */
+}
+
+.tic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 20px;
+
+}
+
+.tic:not(:first-of-type) {
+    margin-top: 50px;
+}
+
+.ttt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .cont-box {

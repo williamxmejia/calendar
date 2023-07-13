@@ -42,13 +42,17 @@ function RenderAllDays(props) {
     
         dates.map((week) => {
           week.map((d) => {
-            days.push(<button key={d.day} className="calendar-in"><div className='dfw'>{d.day}</div></button>)
+            days.push(<button key={d.day}  className="calendar-in"><div onClick={handleButton} className='dfw'>{d.day}</div></button>)
           })
           rows.push(days)
           days = []
         })
     
         return rows
+      }
+
+      function handleButton(e) {
+        console.log(e.target)
       }
     
     useEffect(() => {
